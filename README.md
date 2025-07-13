@@ -4,6 +4,21 @@ A modern, student-focused attendance and bunk planner app. Plan smart. Bunk smar
 
 ---
 
+## Core App Structure
+| Feature                    | What to Build                         |
+| -------------------------- | ------------------------------------- |
+| ✅ Auth System (Done)       | Google OAuth login with basic profile |
+| ✅ Landing Page (Done)      | Hero + About + Features + CTA         |
+| 🔜 Dashboard Layout        | Sidebar + top bar + main content area |
+| 🔜 Subject Management      | Add/Edit/Delete subjects              |
+| 🔜 Timetable Manager       | Assign subjects to weekdays           |
+| 🔜 Attendance Tracker      | Mark Present/Absent daily             |
+| 🔜 Attendance Overview     | Subject-wise and overall %            |
+| 🔜 Local Data + Drive Sync | Store attendance.json in user’s Drive |
+| 🔜 Settings Page           | Reset data, logout, add API key       |
+| 🔜 AI Assistant            | “Can I bunk today?” (optional)        |
+
+
 ## 🚀 Features
 - Effortless attendance tracking
 - AI-powered bunk planner

@@ -12,12 +12,20 @@ import {
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 export default function TimetablePage() {
+  const [hydrated, setHydrated] = useState(false); // ✅ hydration guard
   const [subjects, setSubjects] = useState<string[]>([]);
   const [timetable, setTimetable] = useState<Record<string, string[]>>({});
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState('');
 
+  // Prevent SSR hydration mismatch
   useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+
     const localSubjects = localStorage.getItem('subjects');
     if (localSubjects) {
       const parsed = JSON.parse(localSubjects);
@@ -30,7 +38,7 @@ export default function TimetablePage() {
     if (savedTimetable) {
       const parsed = JSON.parse(savedTimetable);
       const ensured: Record<string, string[]> = {};
-      weekdays.forEach(day => {
+      weekdays.forEach((day) => {
         ensured[day] = parsed[day] ?? [];
       });
       setTimetable(ensured);
@@ -39,12 +47,13 @@ export default function TimetablePage() {
       weekdays.forEach((day) => (initial[day] = []));
       setTimetable(initial);
     }
-  }, []);
+  }, [hydrated]);
 
-  // Save timetable to localStorage automatically on change
   useEffect(() => {
-    localStorage.setItem('timetable', JSON.stringify(timetable));
-  }, [timetable]);
+    if (hydrated) {
+      localStorage.setItem('timetable', JSON.stringify(timetable));
+    }
+  }, [timetable, hydrated]);
 
   const updateSubjects = (day: string, subject: string) => {
     setTimetable((prev) => {
@@ -77,6 +86,8 @@ export default function TimetablePage() {
     alert('Timetable reset!');
   };
 
+  if (!hydrated) return null;
+
   return (
     <motion.div className="min-h-screen bg-gray-900 text-white p-6">
       <h1 className="text-3xl font-bold text-center mb-10">Weekly Timetable</h1>
@@ -103,7 +114,7 @@ export default function TimetablePage() {
             >
               <h2 className="text-xl font-semibold mb-4">{day}</h2>
 
-              {/* Selected tags */}
+              {/* Selected subjects */}
               <div className="flex flex-wrap gap-2 mb-3">
                 {(timetable[day] ?? []).map((s) => (
                   <span
@@ -119,50 +130,51 @@ export default function TimetablePage() {
                 ))}
               </div>
 
+              {/* Combobox for subjects */}
               <Combobox value={selected} onChange={(val) => updateSubjects(day, val)}>
-  <div className="relative z-10 overflow-visible">
-    <Combobox.Input
-      className="w-full border border-gray-600 bg-gray-800 px-5 py-2 rounded focus:outline-none"
-      placeholder="Search subject..."
-      onChange={(e) => setQuery(e.target.value)}
-      displayValue={() => ''}
-    />
-    <Combobox.Button className="absolute inset-y-0 right-2 flex items-center">
-      <ChevronUpDownIcon className="w-5 h-5 text-gray-400" />
-    </Combobox.Button>
+                <div className="relative z-50">
+                  <Combobox.Input
+                    className="w-full border border-gray-600 bg-gray-800 px-5 py-2 rounded focus:outline-none"
+                    placeholder="Search subject..."
+                    onChange={(e) => setQuery(e.target.value)}
+                    displayValue={() => ''}
+                  />
+                  <Combobox.Button className="absolute inset-y-0 right-2 flex items-center pr-2">
+                    <ChevronUpDownIcon className="w-5 h-5 text-gray-400" />
+                  </Combobox.Button>
 
-    {filteredSubjects.length > 0 && (
-      <Combobox.Options
-        className="absolute z-[9999] mt-1 max-h-20 w-full overflow-auto rounded-md bg-gray-800 py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-      >
-        {filteredSubjects.map((subj) => (
-          <Combobox.Option
-            key={subj}
-            value={subj}
-            className={({ active }) =>
-              `relative cursor-pointer select-none py-2 px-4 ${
-                active ? 'bg-blue-600 text-white' : 'text-gray-300'
-              }`
-            }
-          >
-            {({ selected }) => (
-              <span className="flex justify-between items-center">
-                {subj}
-                {selected && <CheckIcon className="h-4 w-4 text-white" />}
-              </span>
-            )}
-          </Combobox.Option>
-        ))}
-      </Combobox.Options>
-    )}
-  </div>
-</Combobox>
-
+                  {filteredSubjects.length > 0 && (
+                    <Combobox.Options
+                      className="absolute z-[9999] mt-1 max-h-20 w-full overflow-y-auto rounded-md bg-gray-800 py-1 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                    >
+                      {filteredSubjects.map((subj) => (
+                        <Combobox.Option
+                          key={subj}
+                          value={subj}
+                          className={({ active }) =>
+                            `cursor-pointer select-none py-2 px-4 ${
+                              active ? 'bg-blue-600 text-white' : 'text-gray-300'
+                            }`
+                          }
+                        >
+                          {({ selected }) => (
+                            <span className="flex justify-between items-center">
+                              {subj}
+                              {selected && <CheckIcon className="h-4 w-4 text-white" />}
+                            </span>
+                          )}
+                        </Combobox.Option>
+                      ))}
+                    </Combobox.Options>
+                  )}
+                </div>
+              </Combobox>
             </motion.div>
           );
         })}
       </div>
-      {/* Buttons */}
+
+      {/* Action Buttons */}
       <div className="flex justify-center gap-6 mt-20 pt-4">
         <button
           onClick={saveTimetable}

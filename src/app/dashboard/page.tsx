@@ -23,20 +23,12 @@ export default function Dashboard() {
     }
   }, [router]);
 
-  function handleLogout() {
-    localStorage.removeItem("user");
-    router.replace("/");
-  }
-
   if (!user) return null;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
-      <h1>Hello, {user.name}!</h1>
-      <p>Welcome to your dashboard.</p>
-      <button onClick={handleLogout} style={{ marginTop: 24, padding: "10px 20px", fontSize: "1rem" }}>
-        Logout
-      </button>
+    <div className="flex flex-col items-center justify-center px-4">
+      <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-[#6366f1] via-[#38bdf8] to-[#22c55e] bg-clip-text text-transparent drop-shadow-lg">Hello, {user.name}!</h1>
+      <p className="text-lg sm:text-xl text-body mb-8">Welcome to your dashboard.</p>
     </div>
   );
 } 

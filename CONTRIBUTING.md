@@ -2,7 +2,21 @@
 
 Thank you for your interest in contributing to Bunkify! 🚀
 
+**💬 Join our Discord Community:** [https://discord.gg/XnKbVYXH](https://discord.gg/XnKbVYXH)
+
 We welcome all contributions—code, design, documentation, and ideas. Please read these guidelines to make your contribution process smooth and effective.
+
+## 🗺️ App Structure & Navigation
+
+- **AppLayout** (in `src/components/AppLayout.tsx`) provides the global, responsive navigation bar (top bar on desktop, hamburger on mobile) and wraps all pages.
+- **Main pages are in `src/app/`**:
+  - `landing/page.tsx` — Landing page
+  - `auth/page.tsx` — Google OAuth login
+  - `dashboard/page.tsx` — Home/dashboard after login
+  - `subjects/page.tsx` — Manage subjects
+  - `attendance/page.tsx` — Attendance overview
+  - `settings/page.tsx` — App settings
+- To add a new main page, create a new folder in `src/app/` and add a `page.tsx` file. To add a new nav item, update `AppLayout.tsx`.
 
 ## 🏷️ Contribution Guidelines
 
@@ -40,6 +54,6 @@ We welcome all contributions—code, design, documentation, and ideas. Please re
 
 ## 💡 Need Help?
 - Open an Issue for questions, suggestions, or to discuss major changes at [https://github.com/hacknrollers/bunkify/issues](https://github.com/hacknrollers/bunkify/issues).
-- Join our community (Discord link coming soon!).
+- **Join our Discord for help and discussion:** [https://discord.gg/XnKbVYXH](https://discord.gg/XnKbVYXH)
 
 Thank you for making Bunkify better! ✨ 

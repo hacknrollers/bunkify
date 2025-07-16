@@ -23,11 +23,6 @@ export default function Dashboard() {
     }
   }, [router]);
 
-  function handleLogout() {
-    localStorage.removeItem("user");
-    router.replace("/");
-  }
-
   if (!user) return null;
 
   return (

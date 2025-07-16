@@ -216,6 +216,7 @@ export default function LandingPage() {
             Get Started →
           </button>
           {showGoogleSignIn && <div ref={googleButtonRef} id="g_id_signin" className="mt-4"></div>}
+          {/* Navigation links to main pages */}
           <a
             href="#features"
             className="text-body text-sm opacity-70 hover:opacity-100 transition-opacity"
@@ -262,26 +263,39 @@ export default function LandingPage() {
         >
           Built by students, for students. 100% open-source.
         </motion.p>
-        <motion.a
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          href="https://github.com/hacknrollers/bunkify"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block rounded-full px-6 py-2 bg-gradient-to-r from-[#6366f1] to-[#22c55e] text-white font-semibold shadow hover:from-[#6366f1] hover:to-[#38bdf8] hover:scale-105 transition-all"
-          style={{ boxShadow: "0 0 6px 1px #6366f1, 0 0 12px 2px #22c55e33" }}
-        >
-          View on GitHub
-        </motion.a>
+        <div className="flex flex-row justify-center items-center gap-4">
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            href="https://github.com/hacknrollers/bunkify"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full px-6 py-2 bg-gradient-to-r from-[#6366f1] to-[#22c55e] text-white font-semibold shadow hover:from-[#6366f1] hover:to-[#38bdf8] hover:scale-105 transition-all flex items-center gap-2"
+            style={{ boxShadow: "0 0 6px 1px #6366f1, 0 0 12px 2px #22c55e33" }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.686-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.699 1.028 1.593 1.028 2.686 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.579.688.481C19.138 20.2 22 16.448 22 12.021 22 6.484 17.523 2 12 2Z" fill="white"/></svg>
+            GitHub
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            href="https://discord.gg/XnKbVYXH"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full px-6 py-2 bg-gradient-to-r from-[#6366f1] to-[#22c55e] text-white font-semibold shadow hover:from-[#6366f1] hover:to-[#38bdf8] hover:scale-105 transition-all flex items-center gap-2"
+            style={{ boxShadow: "0 0 6px 1px #6366f1, 0 0 12px 2px #22c55e33" }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.369A19.791 19.791 0 0 0 16.885 3.2a.077.077 0 0 0-.082.038c-.357.63-.755 1.453-1.037 2.104a18.524 18.524 0 0 0-5.432 0 12.76 12.76 0 0 0-1.05-2.104.077.077 0 0 0-.082-.038A19.736 19.736 0 0 0 3.684 4.369a.07.07 0 0 0-.032.027C.533 9.09-.32 13.58.099 18.021a.082.082 0 0 0 .031.056c2.128 1.565 4.2 2.51 6.29 3.155a.077.077 0 0 0 .084-.027c.484-.66.915-1.356 1.289-2.084a.076.076 0 0 0-.041-.104c-.684-.258-1.334-.577-1.963-.946a.077.077 0 0 1-.008-.127c.132-.099.264-.2.39-.304a.074.074 0 0 1 .077-.01c4.084 1.872 8.497 1.872 12.554 0a.073.073 0 0 1 .078.009c.126.104.258.205.39.304a.077.077 0 0 1-.006.127 12.298 12.298 0 0 1-1.964.946.076.076 0 0 0-.04.105c.375.728.806 1.423 1.288 2.083a.076.076 0 0 0 .084.028c2.092-.645 4.164-1.59 6.291-3.155a.077.077 0 0 0 .03-.055c.5-5.177-.838-9.637-3.549-13.625a.061.061 0 0 0-.03-.028ZM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419Zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.094 2.157 2.418 0 1.334-.947 2.419-2.157 2.419Z" fill="white"/></svg>
+            Discord
+          </motion.a>
+        </div>
       </section>
       {/* Footer */}
       <footer className="w-full py-6 flex flex-col items-center gap-2 text-body text-xs opacity-80 relative z-10">
-        <div className="flex gap-4 mb-1">
-          <a href="https://github.com/hacknrollers/bunkify" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
-          <a href="#" className="hover:underline">Discord</a>
-        </div>
         <div>
           © 2025 <span className="font-bold text-white">Bunkify</span>. Made with <span className="text-red-500">❤️</span> by fellow devs.
         </div>

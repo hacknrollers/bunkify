@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./button"; // Import button component
@@ -16,8 +16,6 @@ export default function Subjects() {
     const router = useRouter();
     // State for Subjects list - Add, Edit, Remove function
   const [subjects, setSubjects] = useState<Subject[]>([]);
-  // Ref for add input field
-  const inputRef = useRef<HTMLInputElement>(null);
   // State for eidt function
   const [isEditing, setIsEditing] = useState(false);
   const [editIndex, setEditIndex] = useState<number | null>(null);

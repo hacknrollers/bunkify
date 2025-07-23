@@ -5,13 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./button"; // Import button component
 
 // Define the Subject type
-export type Subject = {
+type Subject = {
   name: string;
   days: string[]; // e.g., ["Mon", "Wed"]
   timing?: { start: string; end: string };
   requiredAttendance?: number;
-  attendedClasses?: number;
-  totalClasses?: number;
 };
 
 export default function Subjects() {
@@ -69,8 +67,6 @@ export default function Subjects() {
           ? { start: startTime, end: endTime }
           : undefined,
       requiredAttendance: requiredAttendance ? Number(requiredAttendance) : undefined,
-      attendedClasses: 0,
-      totalClasses: 0,
     };
     // Get subjects from localStorage
     const currentSubjects = localStorage.getItem("subjects");

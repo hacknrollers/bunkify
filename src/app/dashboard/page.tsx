@@ -80,7 +80,7 @@ export default function Dashboard() {
       <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-[#6366f1] via-[#38bdf8] to-[#22c55e] bg-clip-text text-transparent drop-shadow-lg">
         Hello, {user.name}!
       </h1>
-      <p className="text-lg sm:text-xl text-body mb-6">Today's Attendance - {todayStr}</p>
+      <p className="text-lg sm:text-xl text-body mb-6">Today&apos;s Attendance - {todayStr}</p>
 
       {todaySubjects.length === 0 ? (
         <p className="text-white text-lg">No classes today, take a break! 🎉</p>

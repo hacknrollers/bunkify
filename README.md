@@ -43,7 +43,7 @@ A modern, student-focused attendance and bunk planner app. Plan smart. Bunk smar
 Coming soon!
 
 ## 💬 Join our Discord Community
-[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/XnKbVYXH)
+[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/nsv4Yc38)
 
 Connect with the team, get help, and contribute ideas!
 
@@ -67,7 +67,7 @@ See `package.json` for full details.
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for full details and the contribution flow!
 
 ## 💬 Community & Support
-- [Join our Discord](https://discord.gg/XnKbVYXH) for questions, support, and discussion.
+- [Join our Discord](https://discord.gg/nsv4Yc38) for questions, support, and discussion.
 
 ## 🌱 Hacktoberfest
 This repository has the [`hacknrollers/bunkify`](https://github.com/hacknrollers/bunkify) topic. Pull requests to this repo will count towards your Hacktoberfest goals ✅.

@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to Bunkify! 🚀
 
-**💬 Join our Discord Community:** [https://discord.gg/XnKbVYXH](https://discord.gg/XnKbVYXH)
+**💬 Join our Discord Community:** [https://discord.gg/nsv4Yc38](https://discord.gg/nsv4Yc38)
 
 We welcome all contributions—code, design, documentation, and ideas. Please read these guidelines to make your contribution process smooth and effective.
 
@@ -165,7 +165,7 @@ Your app will be available at [http://localhost:3000/](http://localhost:3000) �
 
 ## 💭 Need Help?
 
-- 💬 Join our [Discord community](https://discord.gg/XnKbVYXH) for real-time support
+- 💬 Join our [Discord community](https://discord.gg/nsv4Yc38) for real-time support
 - 🐛 Report bugs via GitHub Issues
 - 💡 Share feature ideas in our Discord or GitHub Discussions
 
